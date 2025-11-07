@@ -1,33 +1,21 @@
+// src/index.js
 import express from "express"
 import swaggerUi from "swagger-ui-express"
-import swaggerJSDoc from "swagger-jsdoc"
+import { swaggerSpec } from "./SwaggerConfig.js"
+import StreamIO from "./Routes/StreamIORoutes.js"
 
 const app = express()
+app.use(express.json())
 
-// swagger options
-const swaggerOptions = {
-  definition: {
-    openapi: "3.0.0",
-    info: {
-      title: "Noog API",
-      version: "1.0.0",
-    },
-  },
-  apis: ["./src/routes/*.js"], // var vi ska scanna swagger comments
-}
-
-const swaggerSpec = swaggerJSDoc(swaggerOptions)
-
-// setup swagger UI
+// SWAGGER UI
 app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec))
 
-
-import userRoutes from "./Routes/StreamIORoutes.js"
-app.use("/api/users", userRoutes)
-
+// ROUTES
+app.use("/api/StreamIOVideoCall", StreamIO)
 
 const port = process.env.PORT || 5000
-
 app.listen(port, () => {
-  console.log(`swagger docs: http://localhost:${port}/docs`)
+  console.log(`Server running at http://localhost:${port}`)
+  //Route to Swagger docs
+  console.log(`Docs at http://localhost:${port}/docs`)
 })
