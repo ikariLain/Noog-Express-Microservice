@@ -1,4 +1,4 @@
-import client from "./StreamIOClient.js"
+import client from "../StreamIOClient.js"
 
 // Function to create or get a StreamIO video call by ID
 export async function  createStreamIOVideoCallById(callId, callType) {
