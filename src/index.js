@@ -1,5 +1,4 @@
 // src/index.js
-import 'dotenv/config'
 import express from "express"
 import swaggerUi from "swagger-ui-express"
 import { swaggerSpec } from "./SwaggerConfig.js"
@@ -8,6 +7,7 @@ import { errorHandler } from "./middlewares/errorHandler.js"
 
 const app = express()
 app.use(express.json())
+
 
 // SWAGGER UI
 app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec))
