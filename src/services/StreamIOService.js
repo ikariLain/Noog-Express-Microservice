@@ -10,7 +10,7 @@ export async function  createStreamIOVideoCallById( callId, callType = "default"
   });
   return call;
 }
-
+// Start a group call
 export async function startaGruppCallStreamIOById(callId, grupptype = "group") {
     const call = client.video.call(grupptype, callId)
 
@@ -44,5 +44,29 @@ export async function endCall(CallId, callType = "default") {
   await call.end()
 
   return true
+}
+
+//Join call
+export async function JoinCall(callId, userId, Username, callType = "default") {
+  try {
+    const call = client.video.call(callType, callId);
+
+  await call.addParticipant({
+    user_id: userId,
+    user_name: Username
+  });
+
+   return call;
+
+  } catch (error) {
+    console.error("Error joining StreamIO call:", error);
+    throw error;
+  }
+
+
+
+
+
+
 }
 

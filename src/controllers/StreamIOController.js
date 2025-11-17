@@ -97,3 +97,27 @@ export const endCallForAll = async (req, res) => {
 
   res.status(200).json({ callId, ended: true });
 };
+
+export const JoinCall = async (req, res) => {
+  const { callId } = req.params;
+  const { userId, Username, callType = "default" } = req.body;
+  if (!callId) {
+    throw validationError("call id is required");
+  }
+  if (!userId) {
+    throw validationError("user id is required");
+  }
+  if (!Username) {
+    throw validationError("username is required");
+  }
+  const call = await JoinCall(callId, userId, Username, callType);
+
+  if (!call) {
+    throw new AppError("Failed to join call", 500);
+  }
+  res.status(200).json({
+    callId,
+    userId,
+    Username,
+    call: call.toJSON?.() ?? null });
+};

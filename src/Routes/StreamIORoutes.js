@@ -136,4 +136,45 @@ router.post("/calls/:callId/participants", asyncHandler(removeParticipant));
  */
 router.post("/calls/:callId/end", asyncHandler(endCallForAll));
 
+/**
+ * @openapi
+ * /api/StreamIOVideoCall/calls/{callId}/join:
+ *   post:
+ *     summary: Join a user to an existing call
+ *     tags: [Calls]
+ *     parameters:
+ *       - in: path
+ *         name: callId
+ *         required: true
+ *         schema:
+ *           type: string
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - userId
+ *               - username
+ *             properties:
+ *               userId:
+ *                 type: string
+ *                 example: user_123
+ *               username:
+ *                 type: string
+ *                 example: Alice
+ *               callType:
+ *                 type: string
+ *                 example: default
+ *     responses:
+ *       200:
+ *         description: User joined call successfully
+ *       400:
+ *         description: Bad request
+ *       500:
+ *         description: Server error
+ */
+router.post("/calls/:callId/join", asyncHandler(joinCallController));
+
 export default router;
