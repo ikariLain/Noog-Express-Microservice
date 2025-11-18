@@ -4,6 +4,7 @@ import swaggerUi from "swagger-ui-express"
 import { swaggerSpec } from "./SwaggerConfig.js"
 import StreamIO from "./Routes/StreamIORoutes.js"
 import { errorHandler } from "./middlewares/errorHandler.js"
+import StreamIOUser from "./Routes/StreamIOUserRoutes.js"
 
 const app = express()
 app.use(express.json())
@@ -14,6 +15,7 @@ app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec))
 
 // ROUTES
 app.use("/api/StreamIOVideoCall", StreamIO)
+app.use("/api/StreamIOVideoCall", StreamIOUser)
 
 app.use(errorHandler);
 

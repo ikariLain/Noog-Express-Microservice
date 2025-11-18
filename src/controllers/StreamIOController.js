@@ -3,7 +3,9 @@ import {
   startaGruppCallStreamIOById,
   deleteStreamIOVideoCallById,
   leaveCall,
-  endCall} from "../services/StreamIOService.js";
+  endCall,
+  JoinCall
+} from "../services/StreamIOService.js";
 import {
   AppError,
   notFoundError,
@@ -98,7 +100,7 @@ export const endCallForAll = async (req, res) => {
   res.status(200).json({ callId, ended: true });
 };
 
-export const JoinCall = async (req, res) => {
+export const joinCall = async (req, res) => {
   const { callId } = req.params;
   const { userId, Username, callType = "default" } = req.body;
   if (!callId) {

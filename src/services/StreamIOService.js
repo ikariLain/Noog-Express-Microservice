@@ -62,11 +62,5 @@ export async function JoinCall(callId, userId, Username, callType = "default") {
     console.error("Error joining StreamIO call:", error);
     throw error;
   }
-
-
-
-
-
-
 }
 
