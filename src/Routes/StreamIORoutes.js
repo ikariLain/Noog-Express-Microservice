@@ -6,6 +6,7 @@ import {
   hardDeleteCall,
   removeParticipant,
   endCallForAll,
+  JoinCall
 } from "../controllers/StreamIOController.js";
 
 const router = express.Router()
@@ -175,6 +176,6 @@ router.post("/calls/:callId/end", asyncHandler(endCallForAll));
  *       500:
  *         description: Server error
  */
-router.post("/calls/:callId/join", asyncHandler(joinCallController));
+router.post("/calls/:callId/join", asyncHandler(JoinCall));
 
 export default router;
