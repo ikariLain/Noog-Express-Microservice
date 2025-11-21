@@ -18,6 +18,9 @@ app.use("/api/StreamIOVideoCall", StreamIO)
 // ERROR HANDLER
 app.use(errorHandler);
 
+export const handler = serverless(app);
+
+export default handler;
 
 // const port = process.env.PORT || 5000
 // app.listen(port, () => {
