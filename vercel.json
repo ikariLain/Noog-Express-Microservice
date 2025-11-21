@@ -1,6 +1,6 @@
 {
   "version": 2,
   "routes": [
-    { "src": "/(.*)", "dest": "src/StreamIORoutes.js" }
+    { "src": "/(.*)", "dest": "src/index.js" }
   ]
 }

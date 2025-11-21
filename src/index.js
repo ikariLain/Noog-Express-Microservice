@@ -2,7 +2,7 @@
 import express from "express"
 import swaggerUi from "swagger-ui-express"
 import { swaggerSpec } from "./SwaggerConfig.js"
-import StreamIO from "./api/StreamIORoutes.js"
+import StreamIO from "./router/StreamIORoutes.js"
 import { errorHandler } from "./middlewares/errorHandler.js"
 import serverless from "serverless-http";
 
@@ -14,7 +14,7 @@ index.use(express.json())
 index.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec))
 
 // ROUTES
-index.use("/api/StreamIOVideoCall", StreamIO)
+index.use("/router/StreamIOVideoCall", StreamIO)
 
 // ERROR HANDLER
 index.use(errorHandler);
