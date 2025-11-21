@@ -15,13 +15,17 @@ app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec))
 // ROUTES
 app.use("/api/StreamIOVideoCall", StreamIO)
 
+app.get("/health", (req, res) => {
+  res.status(200).send("OK");
+});
+
 // ERROR HANDLER
 app.use(errorHandler);
 
 
-// const port = process.env.PORT || 5000
-// app.listen(port, () => {
-//   console.log(`Server running at http://localhost:${port}`)
-//   //Route to Swagger docs
-//   console.log(`Docs at http://localhost:${port}/docs`)
-// })
+const port = process.env.PORT || 5000
+app.listen(port, () => {
+  console.log(`Server running at http://localhost:${port}`)
+  //Route to Swagger docs
+  console.log(`Docs at http://localhost:${port}/docs`)
+})
