@@ -11,9 +11,9 @@ export const swaggerOptions = {
   },
   apis: [
     // Path to the API docs
-     "./src/router/StreamIORoutes.js",
-     "./src/controllers/*.js",
-     "./src/middlewares/*.js"
+    "./src/routes/StreamIORoutes.js",
+    "./src/controllers/*.js",
+    "./src/middlewares/*.js"
     ],
 }
 
