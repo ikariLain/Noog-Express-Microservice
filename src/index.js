@@ -21,9 +21,11 @@ index.use(errorHandler);
 
 export default serverless(index);
 
-const port = process.env.PORT || 5000
-index.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}`)
-  //Route to Swagger docs
-  console.log(`Docs at http://localhost:${port}/docs`)
- })
+// Local dev
+if (process.env.NODE_ENV !== "production") {
+  const port = process.env.PORT || 5000;
+  app.listen(port, () => {
+    console.log(`Server running at http://localhost:${port}`);
+    console.log(`Docs at http://localhost:${port}/docs`);
+  });
+}
