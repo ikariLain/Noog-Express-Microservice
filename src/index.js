@@ -13,7 +13,7 @@ app.use(express.json())
 app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec))
 
 // ROUTES
-app.use("/api/StreamIOVideoCall", StreamIO)
+app.use("/StreamIOVideoCall", StreamIO)
 
 // ERROR HANDLER
 app.use(errorHandler);
