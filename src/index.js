@@ -4,6 +4,7 @@ import swaggerUi from "swagger-ui-express"
 import { swaggerSpec } from "./SwaggerConfig.js"
 import StreamIO from "./Routes/StreamIORoutes.js"
 import { errorHandler } from "./middlewares/errorHandler.js"
+import serverless from "serverless-http";
 
 const app = express()
 app.use(express.json())
