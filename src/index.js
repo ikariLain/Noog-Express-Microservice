@@ -2,7 +2,7 @@
 import express from "express"
 import swaggerUi from "swagger-ui-express"
 import { swaggerSpec } from "./SwaggerConfig.js"
-import StreamIO from "./Routes/StreamIORoutes.js"
+import StreamIO from "./Api/StreamIORoutes.js"
 import { errorHandler } from "./middlewares/errorHandler.js"
 import serverless from "serverless-http";
 
