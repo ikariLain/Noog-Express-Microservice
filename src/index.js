@@ -6,24 +6,24 @@ import StreamIO from "./Routes/StreamIORoutes.js"
 import { errorHandler } from "./middlewares/errorHandler.js"
 import serverless from "serverless-http";
 
-const app = express()
-app.use(express.json())
+const index = express()
+index.use(express.json())
 
 
 // SWAGGER UI
-app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec))
+index.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec))
 
 // ROUTES
-app.use("/StreamIOVideoCall", StreamIO)
+index.use("/StreamIOVideoCall", StreamIO)
 
 // ERROR HANDLER
-app.use(errorHandler);
+index.use(errorHandler);
 
-export default serverless(app);
+export default serverless(index);
 
-// const port = process.env.PORT || 5000
-// app.listen(port, () => {
-//   console.log(`Server running at http://localhost:${port}`)
-//   //Route to Swagger docs
-//   console.log(`Docs at http://localhost:${port}/docs`)
-//  })
+const port = process.env.PORT || 5000
+index.listen(port, () => {
+  console.log(`Server running at http://localhost:${port}`)
+  //Route to Swagger docs
+  console.log(`Docs at http://localhost:${port}/docs`)
+ })
