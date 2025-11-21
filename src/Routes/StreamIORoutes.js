@@ -7,7 +7,7 @@ import {
   removeParticipant,
   endCallForAll,
   JoinCall
-} from "../controllers/StreamIOController.js";
+} from "../Api/StreamIOController.js";
 
 const router = express.Router()
 
@@ -16,7 +16,7 @@ const router = express.Router()
 
 /**
  * @openapi
- * /StreamIOVideoCall/createOrGetCall/{callId}:
+ * /api/StreamIOVideoCall/createOrGetCall/{callId}:
  *   post:
  *     summary: Create or get a Stream IO call
  *     tags: [Calls]
@@ -50,7 +50,7 @@ router.post("/calls/:callId", asyncHandler(createOrGetCall));
 
 /**
  * @openapi
- * /StreamIOVideoCall/calls/{callId}/group:
+ * /api/StreamIOVideoCall/calls/{callId}/group:
  *   post:
  *     summary: Start a group call
  *     tags: [Calls]
@@ -71,7 +71,7 @@ router.post("/calls/:callId/group", asyncHandler(startGroupCall));
 
 /**
  * @openapi
- * /StreamIOVideoCall/calls/{callId}:
+ * /api/StreamIOVideoCall/calls/{callId}:
  *   delete:
  *     summary: Hard delete a call
  *     tags: [Calls]
@@ -91,7 +91,7 @@ router.delete("/calls/:callId", asyncHandler(hardDeleteCall));
 
 /**
  * @openapi
- * /StreamIOVideoCall/calls/{callId}/participants:
+ * /api/StreamIOVideoCall/calls/{callId}/participants:
  *   post:
  *     summary: Remove a participant from a call
  *     tags: [Calls]
@@ -121,7 +121,7 @@ router.post("/calls/:callId/participants", asyncHandler(removeParticipant));
 
 /**
  * @openapi
- * /StreamIOVideoCall/calls/{callId}/end:
+ * /api/StreamIOVideoCall/calls/{callId}/end:
  *   post:
  *     summary: End a call for everyone (admin)
  *     tags: [Calls]
@@ -139,7 +139,7 @@ router.post("/calls/:callId/end", asyncHandler(endCallForAll));
 
 /**
  * @openapi
- * /StreamIOVideoCall/calls/{callId}/join:
+ * /api/StreamIOVideoCall/calls/{callId}/join:
  *   post:
  *     summary: Join a user to an existing call
  *     tags: [Calls]

@@ -14,7 +14,7 @@ index.use(express.json())
 index.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec))
 
 // ROUTES
-index.use("/StreamIOVideoCall", StreamIO)
+index.use("/api/StreamIOVideoCall", StreamIO)
 
 // ERROR HANDLER
 index.use(errorHandler);
