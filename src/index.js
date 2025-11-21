@@ -19,13 +19,11 @@ app.use("/StreamIOVideoCall", StreamIO)
 // ERROR HANDLER
 app.use(errorHandler);
 
-export const handler = serverless(app);
+export default serverless(app);
 
-export default handler;
-
-const port = process.env.PORT || 5000
-app.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}`)
-  //Route to Swagger docs
-  console.log(`Docs at http://localhost:${port}/docs`)
- })
+// const port = process.env.PORT || 5000
+// app.listen(port, () => {
+//   console.log(`Server running at http://localhost:${port}`)
+//   //Route to Swagger docs
+//   console.log(`Docs at http://localhost:${port}/docs`)
+//  })
