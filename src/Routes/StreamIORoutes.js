@@ -16,7 +16,7 @@ const router = express.Router()
 
 /**
  * @openapi
- * /StreamIOVideoCall/calls/{callId}:
+ * /StreamIOVideoCall/createOrGetCall/{callId}:
  *   post:
  *     summary: Create or get a Stream IO call
  *     tags: [Calls]
