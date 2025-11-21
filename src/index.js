@@ -1,30 +1,30 @@
 // src/index.js
-import express from "express"
-import swaggerUi from "swagger-ui-express"
-import { swaggerSpec } from "./SwaggerConfig.js"
-import StreamIO from "./router/StreamIORoutes.js"
-import { errorHandler } from "./middlewares/errorHandler.js"
+import express from "express";
+import swaggerUi from "swagger-ui-express";
+import { swaggerSpec } from "./SwaggerConfig.js";
+import StreamIO from "./routes/StreamIORoutes.js";
+import { errorHandler } from "./middlewares/errorHandler.js";
 import serverless from "serverless-http";
 
-const index = express()
-index.use(express.json())
-
+const app = express();
+app.use(express.json());
 
 // SWAGGER UI
-index.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec))
+app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 // ROUTES
-index.use("/router/StreamIOVideoCall", StreamIO)
+app.use("/api/StreamIOVideoCall", StreamIO);
 
 // ERROR HANDLER
-index.use(errorHandler);
+app.use(errorHandler);
 
-export default serverless(index);
+// Export serverless for Vercel
+export default serverless(app);
 
-// Local dev
+// Local development
 if (process.env.NODE_ENV !== "production") {
   const port = process.env.PORT || 5000;
-  index.listen(port, () => {
+  app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}`);
     console.log(`Docs at http://localhost:${port}/docs`);
   });

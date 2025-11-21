@@ -7,7 +7,7 @@ import {
   removeParticipant,
   endCallForAll,
   JoinCall
-} from "../controller/StreamIOController.js";
+} from "../controllers/StreamIOController.js";
 
 const router = express.Router()
 
