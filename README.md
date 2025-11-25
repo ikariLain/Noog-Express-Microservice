@@ -73,15 +73,15 @@ Microservicen exponerar ett rent REST‑API som används av både backend och Re
 
 ---
 
-## 📡 API – Översiktliga rutter
+## 📡 API – Översiktliga routes
 
-Alla rutter ligger under:
+Alla routes ligger under:
 
 ```
 /api/StreamIOVideoCall
 ```
 
-| Ändpunkt                | Metod  | Beskrivning                |
+| Endpoints               | Metod  | Beskrivning                |
 | ----------------------- | ------ | -------------------------- |
 | `/\:callId`             | POST   | Skapar eller hämtar samtal |
 | `/\:callId/group/start` | POST   | Startar gruppsamtal        |
